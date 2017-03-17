@@ -84,7 +84,7 @@ body {
   z-index:2
 }
 #inner::after{
-  content:'20';
+  content: '';
   position:absolute;
   width:100%;
   height:100%;
@@ -123,7 +123,8 @@ body {
   left:50%;
   top:50%;
   margin-left:4px;
-  /*transform: rotateZ(-66deg);*/
+  transform: rotateZ(-59deg);
+  transition: transform 1s;
   border-radius:2px;
   /*
   transform: rotateZ(0deg);
@@ -154,6 +155,9 @@ body {
   document.getElementByID('notches::before')
   transform: rotateZ(0deg);
 }*/
+.powersaving {
+
+}
 
 .button {
 

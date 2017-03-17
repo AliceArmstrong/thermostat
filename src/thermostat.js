@@ -37,12 +37,21 @@ Thermostat.prototype.powerSavingOn = function() {
   this.MAX_TEMP = 25;
 };
 
+Thermostat.prototype.powerSavingSwitch = function () {
+  if(this.powerSaving === true)
+    this.powerSavingOff();
+  else {
+    this.powerSavingOn();
+  }
+
+};
+
 Thermostat.prototype._checkMax = function() {
   if (this.temperature + this.amount > this.MAX_TEMP)
   return true;
 };
 
-Thermostat.prototype.reset = function() {
+Thermostat.prototype.resetTemperature = function() {
   this.temperature = 20;
 };
 
@@ -65,3 +74,18 @@ Thermostat.prototype.setEnergyUsage = function() {
   }
   return this.energy;
 };
+
+Thermostat.prototype.getDegrees = function() {
+  var degrees;
+  degrees = (this.temperature - 10) * 5.9090909091
+  degrees = 230 + degrees
+  return degrees
+};
+
+Thermostat.prototype.powerSavingColor = function(){
+  if (this.powerSaving === true)
+    return 'green'
+  else {
+    return 'red'
+  }
+}

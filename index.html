@@ -26,7 +26,7 @@
 
 <button type="button" id="tempdown">Temperature down</button>
 
-<button type="button" id="powersaving">Toggle power saving</button>
+<button type="button" class="powersaving" id="powersaving">Toggle power saving</button>
 <!-- either change powerSavingOn and powerSavingOff to one function,
 or find if statement to toggle between functions in button -->
 
@@ -35,11 +35,32 @@ or find if statement to toggle between functions in button -->
 <script>
 $(document).ready(function(){
 
+  thermostat = new Thermostat
+
   $('#testbutton').on('click', function(){
-    $('#needle').css('transform', 'rotateZ(-130deg)')
+    $('#needle').css('transform', 'rotate(-130deg)')
   }); // degrees 0 - -130
   // each point of temperature is 5.9090909091 degrees rotation
 
+  $('#reset').on('click', function(){
+    thermostat.resetTemperature()
+    $('#needle').css('transform', 'rotate(' + thermostat.getDegrees() + 'deg)')
+  });
+
+  $('#tempup').on('click', function(){
+    thermostat.tempIncrease()
+    $('#needle').css('transform', 'rotate(' + thermostat.getDegrees() + 'deg)')
+  });
+
+  $('#tempdown').on('click', function(){
+    thermostat.tempDecrease()
+    $('#needle').css('transform', 'rotate(' + thermostat.getDegrees() + 'deg)')
+  });
+
+  $('#powersaving').on('click', function(){
+    var colour = thermostat.powerSavingColour()
+      $('.powersaving').css('background-color', colour);
+  })
 });
 </script>
 

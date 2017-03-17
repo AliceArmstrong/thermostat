@@ -28,7 +28,7 @@ describe("Thermostat", function() {
     });
     it("resets the temperature back to 20 degrees", function() {
       thermo.tempIncrease();
-      thermo.reset();
+      thermo.resetTemperature();
       expect(thermo.temperature).toEqual(20);
     });
 
@@ -51,6 +51,11 @@ describe("Thermostat", function() {
       thermo.powerSavingOn();
       thermo.tempIncrease();
       expect(thermo.tempIncrease()).toEqual("Cannot go above 25 degrees")
+    });
+    it("checks can switch between power saving modes", function(){
+      thermo.powerSavingOn()
+      thermo.powerSavingSwitch()
+      expect(thermo.powerSaving).toEqual(false)
     });
   });
 
