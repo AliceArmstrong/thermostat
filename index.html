@@ -20,6 +20,16 @@
   </div>
   <div id="print"></div>
 
+<button type="button" id="reset">Reset temperature</button>
+
+<button type="button" id="tempup">Temperature up</button>
+
+<button type="button" id="tempdown">Temperature down</button>
+
+<button type="button" id="powersaving">Toggle power saving</button>
+<!-- either change powerSavingOn and powerSavingOff to one function,
+or find if statement to toggle between functions in button -->
+
 <button type="button" id="testbutton">Rotate test</button>
 
 <script>
@@ -28,6 +38,7 @@ $(document).ready(function(){
   $('#testbutton').on('click', function(){
     $('#needle').css('transform', 'rotateZ(-130deg)')
   }); // degrees 0 - -130
+  // each point of temperature is 5.9090909091 degrees rotation
 
 });
 </script>
