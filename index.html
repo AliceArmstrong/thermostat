@@ -6,17 +6,34 @@
   <link rel="stylesheet" type="text/css" href="styles/styles.css" />
   <script src="src/thermostat.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
   </head>
 
 <body>
 
   <div id="container">
     <div id="inner">
-      <div id="notches"></div>
+      <div id="notches">
+        <div id="needle"></div>
+      </div>
     </div>
   </div>
   <div id="print"></div>
 
+<button type="button" id="testbutton">Rotate test</button>
+
+<script>
+$(document).ready(function(){
+
+  $('#testbutton').on('click', function(){
+    $('#needle').css('transform', 'rotateZ(-130deg)')
+  }); // degrees 0 - -130
+
+});
+</script>
+
 </body>
 
 </html>
+
+<script src="styles/buttoninteraction.js" />

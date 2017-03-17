@@ -3,26 +3,27 @@ function Thermostat() {
   this.powerSaving = true;
   this.MAX_TEMP = 25;
   this.energy = 'medium-usage';
+  this.amount = 1
 };
 
-Thermostat.prototype.tempIncrease = function(amount) {
-  if (this._checkMax(amount) === true)
+Thermostat.prototype.tempIncrease = function() {
+  if (this._checkMax() === true)
     return "Cannot go above " + this.MAX_TEMP + " degrees" ;
   else {
-    this.temperature += amount;
+    this.temperature += this.amount;
   };
 };
 
-Thermostat.prototype.tempDecrease = function(amount) {
-  if (this._checkMin(amount) === true)
+Thermostat.prototype.tempDecrease = function() {
+  if (this._checkMin() === true)
     return "Cannot go below 10 degrees";
   else {
-    this.temperature -= amount
+    this.temperature -= this.amount
   };
 };
 
-Thermostat.prototype._checkMin = function(amount) {
-  if (this.temperature - amount < 10)
+Thermostat.prototype._checkMin = function() {
+  if (this.temperature - this.amount < 10)
   return true;
 };
 
@@ -36,8 +37,8 @@ Thermostat.prototype.powerSavingOn = function() {
   this.MAX_TEMP = 25;
 };
 
-Thermostat.prototype._checkMax = function(amount) {
-  if (this.temperature + amount > this.MAX_TEMP)
+Thermostat.prototype._checkMax = function() {
+  if (this.temperature + this.amount > this.MAX_TEMP)
   return true;
 };
 
